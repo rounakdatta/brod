@@ -185,6 +185,7 @@ init({Client, Topic, Partitions, ConsumerConfig,
       CommittedOffsets, MessageType, CbFun, CbState}) ->
   ok = brod_utils:assert_client(Client),
   ok = brod_utils:assert_topic(Topic),
+  io:format("brod_topic_subscriber is sending a message to <someone>~n"),
   self() ! ?LO_CMD_START_CONSUMER(ConsumerConfig, CommittedOffsets, Partitions),
   State =
     #state{ client       = Client

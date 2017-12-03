@@ -199,6 +199,7 @@ log(error,   Fmt, Args) -> error_logger:error_msg(Fmt, Args).
 %% @doc Assert client_id is an atom().
 -spec assert_client(brod:client_id() | pid()) -> ok | no_return().
 assert_client(Client) ->
+  io:format("brod_util is asserting a client~n"),
   ok_when(is_atom(Client) orelse is_pid(Client),
           {bad_client, Client}).
 
@@ -218,6 +219,7 @@ assert_topics(Topics) ->
 %% @doc Assert topic is a binary().
 -spec assert_topic(topic()) -> ok | no_return().
 assert_topic(Topic) ->
+  io:format("brod_utils is asserting a topic~n"),
   ok_when(is_binary(Topic) andalso size(Topic) > 0,
           {bad_topic, Topic}).
 
