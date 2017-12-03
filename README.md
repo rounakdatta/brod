@@ -55,7 +55,13 @@ Below code snippet is copied from Erlang shell
 with some non-important printouts trimmed.
 
 ```erlang
+rebar shell
+
+> application:start(sasl).
+> ssl:start().
+> crypto:start().
 > rr(brod).
+> example:start().
 > {ok, _} = application:ensure_all_started(brod).
 > KafkaBootstrapEndpoints = [{"localhost", 9092}].
 > Topic = <<"brod-test">>.
