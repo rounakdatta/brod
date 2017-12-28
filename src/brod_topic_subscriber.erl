@@ -372,6 +372,7 @@ handle_messages(Partition, [Msg | Rest], State) ->
       true  -> handle_ack(AckRef, State1);
       false -> State1
     end,
+  example:process(Msg),
   handle_messages(Partition, Rest, NewState).
 
 -spec handle_ack(ack_ref(), state()) -> state().
